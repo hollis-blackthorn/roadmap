@@ -7,52 +7,18 @@
 <style>
 /* Reset and base */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-body {
-  font-family: Arial, sans-serif;
-  color: #272727;
-  background: #f8f9fc;
-  padding: 20px;
-}
+body { font-family: Arial, sans-serif; color: #272727; background: #f8f9fc; padding: 20px; }
 
 /* Header */
-.header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 12px 0 20px;
-  flex-wrap: wrap;
-  gap: 8px;
-}
+.header { display: flex; align-items: center; justify-content: space-between; padding: 12px 0 20px; flex-wrap: wrap; gap: 8px; }
 .logo { max-width: 150px; max-height: 55px; width: auto; height: auto; }
-.header h1 {
-  font-size: 22px;
-  font-weight: 700;
-  color: #131022;
-}
-.last-updated {
-  font-size: 12px;
-  color: #64748b;
-}
+.header h1 { font-size: 22px; font-weight: 700; color: #131022; }
+.last-updated { font-size: 12px; color: #64748b; }
 
 /* Legend */
-.legend {
-  display: flex;
-  gap: 16px;
-  flex-wrap: wrap;
-  padding: 8px 0 16px;
-}
-.legend-item {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  font-size: 12px;
-  color: #64748b;
-}
-.legend-dot {
-  width: 10px;
-  height: 10px;
-  border-radius: 2px;
-}
+.legend { display: flex; gap: 16px; flex-wrap: wrap; padding: 8px 0 16px; }
+.legend-item { display: flex; align-items: center; gap: 6px; font-size: 12px; color: #64748b; }
+.legend-dot { width: 10px; height: 10px; border-radius: 2px; }
 .legend-dot.released { background: #22c55e; }
 .legend-dot.in-development { background: #f97316; }
 .legend-dot.planned { background: #ec4899; }
@@ -60,87 +26,31 @@ body {
 .legend-dot.new-idea { background: #5eead4; }
 
 /* Grid */
-.roadmap-grid {
-  display: grid;
-  grid-template-columns: 180px repeat(4, 1fr);
-  gap: 1px;
-  background: #e2e8f0;
-  border-radius: 12px;
-  overflow: hidden;
-}
+.roadmap-grid { display: grid; grid-template-columns: 180px repeat(4, 1fr); gap: 1px; background: #e2e8f0; border-radius: 12px; overflow: hidden; }
 .corner-cell { background: #131022; }
 
 /* Column headers */
-.col-header {
-  background: #6366f1;
-  color: #fff;
-  padding: 16px 12px;
-  text-align: center;
-}
-.release-name {
-  display: block;
-  font-weight: 700;
-  font-size: 15px;
-}
-.release-date {
-  display: block;
-  font-weight: 400;
-  font-size: 12px;
-  opacity: 0.85;
-  margin-top: 4px;
-}
+.col-header { background: #6366f1; color: #fff; padding: 16px 12px; text-align: center; }
+.release-name { display: block; font-weight: 700; font-size: 15px; }
+.release-date { display: block; font-weight: 400; font-size: 12px; opacity: 0.85; margin-top: 4px; }
 
 /* Row headers */
-.row-header {
-  background: #131022;
-  color: #fff;
-  padding: 16px 12px;
-  font-weight: 700;
-  font-size: 14px;
-  display: flex;
-  align-items: flex-start;
-}
+.row-header { background: #131022; color: #fff; padding: 16px 12px; font-weight: 700; font-size: 14px; display: flex; align-items: flex-start; }
 
 /* Grid cells */
-.grid-cell {
-  background: #fff;
-  padding: 8px;
-  min-height: 80px;
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-}
+.grid-cell { background: #fff; padding: 8px; min-height: 80px; display: flex; flex-direction: column; gap: 6px; }
 
 /* Cards */
-.card {
-  display: flex;
-  align-items: flex-start;
-  gap: 8px;
-  padding: 8px 10px;
-  border-radius: 6px;
-  background: #f8f9fc;
-  cursor: pointer;
-  transition: background 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;
-  border: 1px solid transparent;
-}
-.card:hover {
-  background: #eff2fc;
-  border-color: #6366f1;
-  box-shadow: 0 2px 8px rgba(99, 102, 241, 0.12);
-}
-.card:focus {
-  outline: 2px solid #6366f1;
-  outline-offset: 1px;
-}
+.card { display: flex; align-items: flex-start; gap: 8px; padding: 8px 10px; border-radius: 6px; background: #f8f9fc; cursor: pointer; transition: background 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease; border: 1px solid transparent; }
+.card:hover { background: #eff2fc; border-color: #6366f1; box-shadow: 0 2px 8px rgba(99,102,241,0.12); }
+.card:focus { outline: 2px solid #6366f1; outline-offset: 1px; }
+
+/* Sub-feature cards */
+.card.sub-feature { margin-left: 18px; padding: 6px 10px; }
+.card.sub-feature .card-title { font-size: 12px; }
 
 /* Status dot */
-.status-dot {
-  width: 10px;
-  height: 10px;
-  min-width: 10px;
-  border-radius: 2px;
-  margin-top: 4px;
-}
+.status-dot { width: 10px; height: 10px; min-width: 10px; border-radius: 2px; margin-top: 4px; }
 .status-dot.released { background: #22c55e; }
 .status-dot.in-development { background: #f97316; }
 .status-dot.planned { background: #ec4899; }
@@ -148,73 +58,18 @@ body {
 .status-dot.new-idea { background: #5eead4; }
 
 /* Card title */
-.card-title {
-  font-size: 13px;
-  font-weight: 500;
-  color: #272727;
-  line-height: 1.35;
-}
+.card-title { font-size: 13px; font-weight: 500; color: #272727; line-height: 1.35; }
 
 /* Modal */
-#modal-overlay {
-  display: none;
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(19, 16, 34, 0.5);
-  z-index: 1000;
-  justify-content: center;
-  align-items: center;
-}
-#modal-overlay.active {
-  display: flex;
-}
-#modal {
-  background: #fff;
-  border-radius: 12px;
-  max-width: 520px;
-  width: 90%;
-  max-height: 80vh;
-  overflow-y: auto;
-  padding: 28px;
-  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2);
-  position: relative;
-  animation: modalIn 0.2s ease;
-}
-@keyframes modalIn {
-  from { opacity: 0; transform: translateY(12px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-.modal-close {
-  position: absolute;
-  top: 12px;
-  right: 12px;
-  width: 32px;
-  height: 32px;
-  border: none;
-  background: #f1f5f9;
-  border-radius: 50%;
-  cursor: pointer;
-  font-size: 18px;
-  color: #64748b;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
+#modal-overlay { display: none; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(19,16,34,0.5); z-index: 1000; justify-content: center; align-items: flex-start; }
+#modal-overlay.active { display: flex; }
+#modal { background: #fff; border-radius: 12px; max-width: 520px; width: 90%; max-height: 80vh; overflow-y: auto; padding: 28px; box-shadow: 0 12px 40px rgba(0,0,0,0.2); position: relative; animation: modalIn 0.2s ease; }
+@keyframes modalIn { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
+.modal-close { position: absolute; top: 12px; right: 12px; width: 32px; height: 32px; border: none; background: #f1f5f9; border-radius: 50%; cursor: pointer; font-size: 18px; color: #64748b; display: flex; align-items: center; justify-content: center; }
 .modal-close:hover { background: #e2e8f0; }
 
 /* Status badge in modal */
-.status-badge {
-  display: inline-block;
-  padding: 4px 12px;
-  border-radius: 20px;
-  font-size: 12px;
-  font-weight: 600;
-  color: #fff;
-  margin-bottom: 12px;
-}
+.status-badge { display: inline-block; padding: 4px 12px; border-radius: 20px; font-size: 12px; font-weight: 600; color: #fff; margin-bottom: 12px; }
 .status-badge.released { background: #22c55e; }
 .status-badge.in-development { background: #f97316; }
 .status-badge.planned { background: #ec4899; }
@@ -222,64 +77,27 @@ body {
 .status-badge.new-idea { background: #5eead4; color: #272727; }
 
 /* Modal content */
-#modal-title {
-  font-size: 20px;
-  font-weight: 700;
-  color: #272727;
-  margin-bottom: 12px;
-  line-height: 1.3;
-}
-#modal-description {
-  font-size: 14px;
-  line-height: 1.6;
-  color: #4a4a4a;
-  margin-bottom: 16px;
-}
+#modal-title { font-size: 20px; font-weight: 700; color: #272727; margin-bottom: 12px; line-height: 1.3; }
+#modal-description { font-size: 14px; line-height: 1.6; color: #4a4a4a; margin-bottom: 16px; }
 #modal-description p { margin-bottom: 8px; }
-#modal-links {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-}
-#modal-links a {
-  color: #6366f1;
-  font-size: 13px;
-  font-weight: 500;
-  text-decoration: none;
-  display: inline-flex;
-  align-items: center;
-  gap: 4px;
-}
+#modal-links { display: flex; flex-direction: column; gap: 6px; }
+#modal-links a { color: #6366f1; font-size: 13px; font-weight: 500; text-decoration: none; display: inline-flex; align-items: center; gap: 4px; }
 #modal-links a:hover { text-decoration: underline; }
 #modal-links a::before { content: "\2192"; }
 
 /* Responsive */
-@media (max-width: 900px) {
-  .roadmap-grid { grid-template-columns: 120px repeat(4, 1fr); }
-  .card-title { font-size: 12px; }
-}
+@media (max-width: 900px) { .roadmap-grid { grid-template-columns: 120px repeat(4, 1fr); } .card-title { font-size: 12px; } }
 @media (max-width: 768px) {
   .roadmap-grid { grid-template-columns: 1fr; }
   .corner-cell { display: none; }
   .col-header { display: none; }
   .row-header { display: none; }
-  .grid-cell {
-    border-bottom: 2px solid #6366f1;
-    padding-top: 12px;
-  }
-  .grid-cell::before {
-    content: attr(data-category) " \2022  " attr(data-release);
-    font-weight: 700;
-    font-size: 12px;
-    color: #6366f1;
-    margin-bottom: 6px;
-    display: block;
-  }
+  .grid-cell { border-bottom: 2px solid #6366f1; padding-top: 12px; }
+  .grid-cell::before { content: attr(data-category) " \2022  " attr(data-release); font-weight: 700; font-size: 12px; color: #6366f1; margin-bottom: 6px; display: block; }
 }
 </style>
 </head>
 <body>
-
 <header class="header">
   <div class="header-left">
     <img src="https://blackthorn.io/wp-content/uploads/2025/04/Blackthorn-LogoLockup-150x55-black.svg" alt="Blackthorn" class="logo">
@@ -291,7 +109,6 @@ body {
     <span class="last-updated">Updated February 4, 2026</span>
   </div>
 </header>
-
 <div class="legend">
   <span class="legend-item"><span class="legend-dot released"></span>Released</span>
   <span class="legend-item"><span class="legend-dot in-development"></span>In Development</span>
@@ -299,131 +116,115 @@ body {
   <span class="legend-item"><span class="legend-dot in-discovery"></span>In Discovery</span>
   <span class="legend-item"><span class="legend-dot new-idea"></span>New Idea</span>
 </div>
-
 <div class="roadmap-grid">
-  <!-- Corner cell -->
   <div class="corner-cell"></div>
-
-  <!-- Column headers -->
   <div class="col-header">
     <span class="release-name">Fall</span>
-    <span class="release-date">September '25 Estimated</span>
+    <span class="release-date">September &#39;25 Estimated</span>
   </div>
   <div class="col-header">
     <span class="release-name">Winter</span>
-    <span class="release-date">January '26 Estimated</span>
+    <span class="release-date">January &#39;26 Estimated</span>
   </div>
   <div class="col-header">
     <span class="release-name">Spring</span>
-    <span class="release-date">May '26 Estimated</span>
+    <span class="release-date">May &#39;26 Estimated</span>
   </div>
   <div class="col-header">
     <span class="release-name">Future</span>
   </div>
-
-  <!-- Blackthorn Events row -->
   <div class="row-header">Blackthorn Events</div>
-
   <div class="grid-cell" data-category="Blackthorn Events" data-release="Fall">
-    <div class="card" onclick="openModal('events-fall-0')" role="button" tabindex="0" onkeydown="if(event.key==='Enter')openModal('events-fall-0')">
+    <div class="card" onclick="openModal('f0')" role="button" tabindex="0" onkeydown="if(event.key==='Enter')openModal('f0')">
       <span class="status-dot released" title="Released"></span>
-      <span class="card-title">Multi-Session Event Support</span>
+      <span class="card-title">Easier Reporting for Form Submission Data</span>
     </div>
-    <div class="card" onclick="openModal('events-fall-1')" role="button" tabindex="0" onkeydown="if(event.key==='Enter')openModal('events-fall-1')">
+    <div class="card" onclick="openModal('f1')" role="button" tabindex="0" onkeydown="if(event.key==='Enter')openModal('f1')">
       <span class="status-dot released" title="Released"></span>
-      <span class="card-title">Waitlist Management</span>
+      <span class="card-title">Customize Builder fields 🔧</span>
+    </div>
+    <div class="card" onclick="openModal('f2')" role="button" tabindex="0" onkeydown="if(event.key==='Enter')openModal('f2')">
+      <span class="status-dot released" title="Released"></span>
+      <span class="card-title">Forms for Sessions</span>
     </div>
   </div>
-
   <div class="grid-cell" data-category="Blackthorn Events" data-release="Winter">
-    <div class="card" onclick="openModal('events-winter-0')" role="button" tabindex="0" onkeydown="if(event.key==='Enter')openModal('events-winter-0')">
+    <div class="card" onclick="openModal('f3')" role="button" tabindex="0" onkeydown="if(event.key==='Enter')openModal('f3')">
+      <span class="status-dot released" title="Released"></span>
+      <span class="card-title">🔖 Badge Generation, powered by Nintex (Nov est.)</span>
+    </div>
+    <div class="card" onclick="openModal('f4')" role="button" tabindex="0" onkeydown="if(event.key==='Enter')openModal('f4')">
       <span class="status-dot in-development" title="In Development"></span>
-      <span class="card-title">Custom Registration Forms</span>
+      <span class="card-title">Analytics Improvements (UTM, GTM)</span>
+    </div>
+    <div class="card" onclick="openModal('f5')" role="button" tabindex="0" onkeydown="if(event.key==='Enter')openModal('f5')">
+      <span class="status-dot in-development" title="In Development"></span>
+      <span class="card-title">Session Selection Quick Wins</span>
+    </div>
+    <div class="card sub-feature" onclick="openModal('f6')" role="button" tabindex="0" onkeydown="if(event.key==='Enter')openModal('f6')">
+      <span class="status-dot in-development" title="In Development"></span>
+      <span class="card-title">Collapse session description on registration page</span>
     </div>
   </div>
-
   <div class="grid-cell" data-category="Blackthorn Events" data-release="Spring">
-    <div class="card" onclick="openModal('events-spring-0')" role="button" tabindex="0" onkeydown="if(event.key==='Enter')openModal('events-spring-0')">
+    <div class="card" onclick="openModal('f7')" role="button" tabindex="0" onkeydown="if(event.key==='Enter')openModal('f7')">
       <span class="status-dot planned" title="Planned"></span>
-      <span class="card-title">Virtual Event Integration</span>
+      <span class="card-title">Abandoned Cart Tracking</span>
+    </div>
+    <div class="card" onclick="openModal('f8')" role="button" tabindex="0" onkeydown="if(event.key==='Enter')openModal('f8')">
+      <span class="status-dot in-development" title="In Development"></span>
+      <span class="card-title">Session Selection Quick Wins</span>
+    </div>
+    <div class="card sub-feature" onclick="openModal('f9')" role="button" tabindex="0" onkeydown="if(event.key==='Enter')openModal('f9')">
+      <span class="status-dot in-development" title="In Development"></span>
+      <span class="card-title">Require at least one session selection</span>
     </div>
   </div>
-
   <div class="grid-cell" data-category="Blackthorn Events" data-release="Future">
-    <div class="card" onclick="openModal('events-future-0')" role="button" tabindex="0" onkeydown="if(event.key==='Enter')openModal('events-future-0')">
-      <span class="status-dot in-discovery" title="In Discovery"></span>
-      <span class="card-title">AI-Powered Event Recommendations</span>
+    <div class="card" onclick="openModal('f10')" role="button" tabindex="0" onkeydown="if(event.key==='Enter')openModal('f10')">
+      <span class="status-dot new-idea" title="New Idea"></span>
+      <span class="card-title">Table &amp; Block Ticketing</span>
     </div>
   </div>
-
-  <!-- Blackthorn Mobile row -->
   <div class="row-header">Blackthorn Mobile</div>
-
   <div class="grid-cell" data-category="Blackthorn Mobile" data-release="Fall">
-    <div class="card" onclick="openModal('mobile-fall-0')" role="button" tabindex="0" onkeydown="if(event.key==='Enter')openModal('mobile-fall-0')">
+    <div class="card" onclick="openModal('f11')" role="button" tabindex="0" onkeydown="if(event.key==='Enter')openModal('f11')">
       <span class="status-dot released" title="Released"></span>
-      <span class="card-title">Offline Check-In Mode</span>
+      <span class="card-title">Bulk Data Sync (Swift Mode)</span>
     </div>
   </div>
-
   <div class="grid-cell" data-category="Blackthorn Mobile" data-release="Winter">
-    <div class="card" onclick="openModal('mobile-winter-0')" role="button" tabindex="0" onkeydown="if(event.key==='Enter')openModal('mobile-winter-0')">
-      <span class="status-dot in-development" title="In Development"></span>
-      <span class="card-title">Push Notification Alerts</span>
-    </div>
-  </div>
-
-  <div class="grid-cell" data-category="Blackthorn Mobile" data-release="Spring">
-    <div class="card" onclick="openModal('mobile-spring-0')" role="button" tabindex="0" onkeydown="if(event.key==='Enter')openModal('mobile-spring-0')">
-      <span class="status-dot planned" title="Planned"></span>
-      <span class="card-title">QR Code Badge Scanning</span>
-    </div>
-  </div>
-
-  <div class="grid-cell" data-category="Blackthorn Mobile" data-release="Future">
-    <div class="card" onclick="openModal('mobile-future-0')" role="button" tabindex="0" onkeydown="if(event.key==='Enter')openModal('mobile-future-0')">
-      <span class="status-dot new-idea" title="New Idea"></span>
-      <span class="card-title">Augmented Reality Wayfinding</span>
-    </div>
-  </div>
-
-  <!-- Blackthorn Payments row -->
-  <div class="row-header">Blackthorn Payments</div>
-
-  <div class="grid-cell" data-category="Blackthorn Payments" data-release="Fall">
-    <div class="card" onclick="openModal('payments-fall-0')" role="button" tabindex="0" onkeydown="if(event.key==='Enter')openModal('payments-fall-0')">
+    <div class="card" onclick="openModal('f12')" role="button" tabindex="0" onkeydown="if(event.key==='Enter')openModal('f12')">
       <span class="status-dot released" title="Released"></span>
-      <span class="card-title">Apple Pay Support</span>
+      <span class="card-title">Attendee Navigator Custom Content 🎨</span>
     </div>
   </div>
-
-  <div class="grid-cell" data-category="Blackthorn Payments" data-release="Winter">
-    <div class="card" onclick="openModal('payments-winter-0')" role="button" tabindex="0" onkeydown="if(event.key==='Enter')openModal('payments-winter-0')">
+  <div class="grid-cell" data-category="Blackthorn Mobile" data-release="Spring">
+    <div class="card" onclick="openModal('f13')" role="button" tabindex="0" onkeydown="if(event.key==='Enter')openModal('f13')">
       <span class="status-dot in-development" title="In Development"></span>
-      <span class="card-title">Recurring Payment Schedules</span>
+      <span class="card-title">Self check-in: Kiosk mode 🖥️</span>
+    </div>
+    <div class="card" onclick="openModal('f14')" role="button" tabindex="0" onkeydown="if(event.key==='Enter')openModal('f14')">
+      <span class="status-dot in-development" title="In Development"></span>
+      <span class="card-title">Attendee Navigator Notification center 🔔</span>
     </div>
   </div>
-
+  <div class="grid-cell" data-category="Blackthorn Mobile" data-release="Future">
+  </div>
+  <div class="row-header">Blackthorn Payments</div>
+  <div class="grid-cell" data-category="Blackthorn Payments" data-release="Fall">
+  </div>
+  <div class="grid-cell" data-category="Blackthorn Payments" data-release="Winter">
+  </div>
   <div class="grid-cell" data-category="Blackthorn Payments" data-release="Spring">
-    <div class="card" onclick="openModal('payments-spring-0')" role="button" tabindex="0" onkeydown="if(event.key==='Enter')openModal('payments-spring-0')">
-      <span class="status-dot planned" title="Planned"></span>
-      <span class="card-title">Multi-Currency Checkout</span>
-    </div>
-    <div class="card" onclick="openModal('payments-spring-1')" role="button" tabindex="0" onkeydown="if(event.key==='Enter')openModal('payments-spring-1')">
-      <span class="status-dot in-discovery" title="In Discovery"></span>
-      <span class="card-title">Payment Analytics Dashboard</span>
+    <div class="card" onclick="openModal('f15')" role="button" tabindex="0" onkeydown="if(event.key==='Enter')openModal('f15')">
+      <span class="status-dot in-development" title="In Development"></span>
+      <span class="card-title">A &amp; AA Level WCAG Accessibility ♿️</span>
     </div>
   </div>
-
   <div class="grid-cell" data-category="Blackthorn Payments" data-release="Future">
-    <div class="card" onclick="openModal('payments-future-0')" role="button" tabindex="0" onkeydown="if(event.key==='Enter')openModal('payments-future-0')">
-      <span class="status-dot new-idea" title="New Idea"></span>
-      <span class="card-title">Cryptocurrency Payments</span>
-    </div>
   </div>
 </div>
-
-<!-- Modal overlay -->
 <div id="modal-overlay" onclick="closeModal(event)">
   <div id="modal" role="dialog" aria-modal="true">
     <button class="modal-close" onclick="closeModal()" aria-label="Close">&times;</button>
@@ -433,147 +234,65 @@ body {
     <div id="modal-links"></div>
   </div>
 </div>
-
 <script>
-var FEATURES = {
-  "events-fall-0": {
-    "title": "Multi-Session Event Support",
-    "description": "Create events with multiple sessions, allowing attendees to register for individual sessions or full event packages.\n\nIncludes session-level capacity management and conflict detection.",
-    "status": "Released",
-    "statusClass": "released",
-    "links": [{"label": "Release Notes", "url": "https://example.com/release-notes"}]
-  },
-  "events-fall-1": {
-    "title": "Waitlist Management",
-    "description": "Automatic waitlist management for sold-out events. Attendees are notified and promoted from the waitlist when spots open up.",
-    "status": "Released",
-    "statusClass": "released",
-    "links": [{"label": "Documentation", "url": "https://example.com/docs"}]
-  },
-  "events-winter-0": {
-    "title": "Custom Registration Forms",
-    "description": "Build fully customizable registration forms with conditional logic, custom fields, and branded styling.\n\nSupports multi-step forms with progress indicators.",
-    "status": "In Development",
-    "statusClass": "in-development",
-    "links": []
-  },
-  "events-spring-0": {
-    "title": "Virtual Event Integration",
-    "description": "Native integration with popular virtual event platforms including Zoom, Teams, and Webex.\n\nAutomatic meeting link generation and attendee syncing.",
-    "status": "Planned",
-    "statusClass": "planned",
-    "links": []
-  },
-  "events-future-0": {
-    "title": "AI-Powered Event Recommendations",
-    "description": "Intelligent event recommendations based on attendee history, preferences, and behavior patterns.",
-    "status": "In Discovery",
-    "statusClass": "in-discovery",
-    "links": []
-  },
-  "mobile-fall-0": {
-    "title": "Offline Check-In Mode",
-    "description": "Check in attendees even without an internet connection. Data syncs automatically when connectivity is restored.",
-    "status": "Released",
-    "statusClass": "released",
-    "links": [{"label": "User Guide", "url": "https://example.com/guide"}]
-  },
-  "mobile-winter-0": {
-    "title": "Push Notification Alerts",
-    "description": "Send real-time push notifications to attendees for schedule changes, session reminders, and important announcements.",
-    "status": "In Development",
-    "statusClass": "in-development",
-    "links": []
-  },
-  "mobile-spring-0": {
-    "title": "QR Code Badge Scanning",
-    "description": "Scan QR codes on attendee badges for fast check-in, session tracking, and lead capture at exhibitor booths.",
-    "status": "Planned",
-    "statusClass": "planned",
-    "links": []
-  },
-  "mobile-future-0": {
-    "title": "Augmented Reality Wayfinding",
-    "description": "Use AR to help attendees navigate large venues with interactive indoor maps and directional overlays.",
-    "status": "New Idea",
-    "statusClass": "new-idea",
-    "links": []
-  },
-  "payments-fall-0": {
-    "title": "Apple Pay Support",
-    "description": "Accept payments via Apple Pay for a faster, more secure checkout experience on supported devices.",
-    "status": "Released",
-    "statusClass": "released",
-    "links": [{"label": "Setup Guide", "url": "https://example.com/apple-pay"}]
-  },
-  "payments-winter-0": {
-    "title": "Recurring Payment Schedules",
-    "description": "Set up automated recurring payments with flexible scheduling options including weekly, monthly, and custom intervals.",
-    "status": "In Development",
-    "statusClass": "in-development",
-    "links": []
-  },
-  "payments-spring-0": {
-    "title": "Multi-Currency Checkout",
-    "description": "Accept payments in multiple currencies with automatic conversion and localized checkout experiences.",
-    "status": "Planned",
-    "statusClass": "planned",
-    "links": []
-  },
-  "payments-spring-1": {
-    "title": "Payment Analytics Dashboard",
-    "description": "Comprehensive analytics dashboard showing payment trends, conversion rates, and revenue breakdowns.\n\nIncludes exportable reports and Salesforce dashboard components.",
-    "status": "In Discovery",
-    "statusClass": "in-discovery",
-    "links": []
-  },
-  "payments-future-0": {
-    "title": "Cryptocurrency Payments",
-    "description": "Accept cryptocurrency payments through popular wallets and payment processors.",
-    "status": "New Idea",
-    "statusClass": "new-idea",
-    "links": []
-  }
-};
+var FEATURES = {"f0":{"title":"Easier Reporting for Form Submission Data","description":"No more Excel gymnastics to report on your attendee form submission data! Report on attendee answers with a single row for each attendee. Each column header is a form question.","status":"Released","statusClass":"released","links":[{"label":"View Docs","url":"https://docs.blackthorn.io"}]},"f1":{"title":"Customize Builder fields 🔧","description":"Update different sections with fields that are relevant to your event creation workflow! We are adding additional fields to our fieldsets, and are adding static fields as well so you can remove optional ones.","status":"Released","statusClass":"released","links":[]},"f2":{"title":"Forms for Sessions","description":"Chicken, beef, or vegetarian entrée for your dinner session? Ask your attendees a session-specific question during the session selection step.","status":"Released","statusClass":"released","links":[]},"f3":{"title":"🔖 Badge Generation, powered by Nintex (Nov est.)","description":"Easily generate and print event attendee badges using your existing Blackthorn Events data. This app integrates with Nintex DocGen to streamline badge creation—no configuration expertise required.\n\nRefine the look and feel of your badges with templates. Print them in bulk for a breezy day 1 of your event, or individually as needed.  \n\nNote that this extension is available within Salesforce. The Mobile Check-in app supports standard badge printing, but not this new extension.","status":"Released","statusClass":"released","links":[]},"f4":{"title":"Analytics Improvements (UTM, GTM)","description":"New improvements for UTM parameter tracking and GTM are on the way!\n\nUTM Parameter Persistence in iFrames captures and carries UTM parameters through to the iframed event registration pages.\n\nGoogle Tag Manager Updates:\n\nEvent tracking: You’ll now be able to track these registration-journey events and push them into GTM:\n\n- User views an Event Group\n- User selects an Event\n- User begins the registration form\n- User abandons the form\n- User completes registration and payment \n\nMultiple GTM container IDs: You'll be about to add one or more GTM container IDs directly in the Event Settings record.","status":"In Development","statusClass":"in-development","links":[]},"f5":{"title":"Session Selection Quick Wins","description":"A collection of small but mighty updates that make session registration faster, smoother, and easier—less scrolling, fewer clicks, and a more intuitive experience for both attendees and organizers.","status":"In Development","statusClass":"in-development","links":[]},"f6":{"title":"Collapse session description on registration page","description":"Expand or collapse individual session details on the registration page (Dynamic UI and Tabbed UI), making it easier to browse sessions, reduce scrolling (especially on mobile), and quickly find the ones you want to attend.","status":"In Development","statusClass":"in-development","links":[]},"f7":{"title":"Abandoned Cart Tracking","description":"🛒 Leverage new visibility into your registration funnel. We’ll add step-level tracking across the flow, capturing exact drop-off points with timestamps and identifiers to power targeted marketing and re-engagement.","status":"Planned","statusClass":"planned","links":[]},"f8":{"title":"Session Selection Quick Wins","description":"A collection of small but mighty updates that make session registration faster, smoother, and easier—less scrolling, fewer clicks, and a more intuitive experience for both attendees and organizers.","status":"In Development","statusClass":"in-development","links":[]},"f9":{"title":"Require at least one session selection","description":"You now have the option to require attendees to pick at least one session when registering, saving you the hassle of chasing down incomplete registrations.","status":"In Development","statusClass":"in-development","links":[]},"f10":{"title":"Table & Block Ticketing","description":"Purchase a full table or block of tickets in one step, then distribute them later — ideal for sponsors, companies, or group hosts.","status":"New Idea","statusClass":"new-idea","links":[]},"f11":{"title":"Bulk Data Sync (Swift Mode)","description":"Swift Mode is a new offline check-in capability designed for high-volume events or unreliable internet connections. It securely stores attendee data on the device using persistent storage and syncs with Salesforce in efficient batches. This results in faster performance, improved reliability, and a smoother experience for staff and attendees during check-in. It also drastically lowers the number of Salesforce API calls used by the app.","status":"Released","statusClass":"released","links":[]},"f12":{"title":"Attendee Navigator Custom Content 🎨","description":"Customize your attendee app with the content that matters most\nAdd a rich text section to your Navigator mobile app, giving you a flexible space to share the content that matters most to your attendees.\nUse it for things like parking details, welcome notes, upcoming event promotions, donation links—or anything else you want to highlight.  \n\nEmbedded directly in the app experience\n\nConfigurable to match your event goals\n\nBuilt for flexibility—add the content that makes sense for your attendees","status":"Released","statusClass":"released","links":[]},"f13":{"title":"Self check-in: Kiosk mode 🖥️","description":"💥 Eliminate bottlenecks at check-in! \nWith your check-in app in kiosk mode, attendees can scan their own barcode without the assistance of event staff.","status":"In Development","statusClass":"in-development","links":[]},"f14":{"title":"Attendee Navigator Notification center 🔔","description":"Ensure attendees never miss a critical update.","status":"In Development","statusClass":"in-development","links":[]},"f15":{"title":"A & AA Level WCAG Accessibility ♿️","description":"We're enhancing accessibility across our platform to meet WCAG 2.1 A and AA standards. This ensures a more inclusive experience for users with disabilities, improving navigation, readability, and usability for everyone.","status":"In Development","statusClass":"in-development","links":[]}};
 
 function openModal(id) {
   var f = FEATURES[id];
   if (!f) return;
-
-  document.getElementById('modal-status').innerHTML = '<span class="status-badge ' + f.statusClass + '">' + f.status + '</span>';
-  document.getElementById('modal-title').textContent = f.title;
-
-  // Convert description line breaks to paragraphs
-  var desc = f.description.split(/\n\n+/).map(function(p) {
-    return '<p>' + escapeForHtml(p.replace(/\n/g, '<br>')) + '</p>';
-  }).join('');
-  document.getElementById('modal-description').innerHTML = desc;
-
-  // Build links
-  var linksHtml = '';
+  document.getElementById("modal-status").innerHTML = '<span class="status-badge ' + f.statusClass + '">' + f.status + '</span>';
+  document.getElementById("modal-title").textContent = f.title;
+  var desc = f.description.split(/\n\n+/).map(function(p) { return "<p>" + escapeForHtml(p.replace(/\n/g, "<br>")) + "</p>"; }).join("");
+  document.getElementById("modal-description").innerHTML = desc;
+  var linksHtml = "";
   if (f.links && f.links.length > 0) {
     f.links.forEach(function(l) {
       linksHtml += '<a href="' + l.url + '" target="_blank" rel="noopener noreferrer">' + escapeForHtml(l.label) + '</a>';
     });
   }
-  document.getElementById('modal-links').innerHTML = linksHtml;
+  document.getElementById("modal-links").innerHTML = linksHtml;
+  var overlay = document.getElementById("modal-overlay");
+  overlay.classList.add("active");
+  positionModal();
+  document.body.style.overflow = "hidden";
+}
 
-  document.getElementById('modal-overlay').classList.add('active');
-  document.body.style.overflow = 'hidden';
+var parentScrollTop = 0;
+var parentViewportHeight = window.innerHeight;
+
+window.addEventListener("message", function(e) {
+  if (e.data && e.data.type === "roadmap-scroll") {
+    parentScrollTop = e.data.scrollTop || 0;
+    parentViewportHeight = e.data.viewportHeight || window.innerHeight;
+  }
+});
+
+function positionModal() {
+  var overlay = document.getElementById("modal-overlay");
+  var modal = document.getElementById("modal");
+  var visibleTop = Math.max(0, parentScrollTop);
+  var visibleHeight = parentViewportHeight;
+  overlay.style.top = "0";
+  overlay.style.height = document.documentElement.scrollHeight + "px";
+  var modalHeight = modal.offsetHeight || 400;
+  var topPosition = visibleTop + Math.max(20, (visibleHeight - modalHeight) / 2);
+  modal.style.marginTop = topPosition + "px";
 }
 
 function closeModal(e) {
-  if (e && e.target && e.target.id !== 'modal-overlay') return;
-  document.getElementById('modal-overlay').classList.remove('active');
-  document.body.style.overflow = '';
+  if (e && e.target && e.target.id !== "modal-overlay") return;
+  var modal = document.getElementById("modal");
+  modal.style.marginTop = "";
+  document.getElementById("modal-overlay").classList.remove("active");
+  document.body.style.overflow = "";
 }
 
-document.addEventListener('keydown', function(e) {
-  if (e.key === 'Escape') closeModal();
+document.addEventListener("keydown", function(e) {
+  if (e.key === "Escape") closeModal();
 });
 
 function escapeForHtml(str) {
-  var div = document.createElement('div');
+  var div = document.createElement("div");
   div.appendChild(document.createTextNode(str));
   return div.innerHTML;
 }
@@ -582,21 +301,18 @@ function escapeForHtml(str) {
 (function() {
   function sendHeight() {
     var height = Math.max(
-      document.body.scrollHeight,
-      document.body.offsetHeight,
-      document.documentElement.clientHeight,
-      document.documentElement.scrollHeight,
+      document.body.scrollHeight, document.body.offsetHeight,
+      document.documentElement.clientHeight, document.documentElement.scrollHeight,
       document.documentElement.offsetHeight
     );
-    window.parent.postMessage({ type: 'roadmap-resize', height: height }, '*');
+    window.parent.postMessage({ type: "roadmap-resize", height: height }, "*");
   }
-  window.addEventListener('load', sendHeight);
-  window.addEventListener('resize', sendHeight);
+  window.addEventListener("load", sendHeight);
+  window.addEventListener("resize", sendHeight);
   var observer = new MutationObserver(sendHeight);
   observer.observe(document.body, { childList: true, subtree: true, attributes: true });
   setInterval(sendHeight, 2000);
 })();
 </script>
-
 </body>
 </html>

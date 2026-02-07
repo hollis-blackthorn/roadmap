@@ -372,7 +372,7 @@ function openModal(id) {
   if (!f) return;
   document.getElementById("modal-status").innerHTML = '<span class="status-badge ' + f.statusClass + '">' + f.status + '</span>';
   document.getElementById("modal-title").textContent = f.title;
-  var desc = f.description.split(/\n\n+/).map(function(p) { return "<p>" + escapeForHtml(p).replace(/\n/g, "<br>").replace(/&lt;br&gt;/gi, "<br>") + "</p>"; }).join("");
+  var desc = f.description.split(/\n\n+/).map(function(p) { return "<p>" + formatDescription(p) + "</p>"; }).join("");
   document.getElementById("modal-description").innerHTML = desc;
   var linksHtml = "";
   if (f.links && f.links.length > 0) {
@@ -425,6 +425,18 @@ function escapeForHtml(str) {
   var div = document.createElement("div");
   div.appendChild(document.createTextNode(str));
   return div.innerHTML;
+}
+
+function formatDescription(text) {
+  var s = escapeForHtml(text);
+  s = s.replace(/\n/g, "<br>");
+  s = s.replace(/&lt;br\s*\/?&gt;/gi, "<br>");
+  s = s.replace(/&lt;b&gt;/gi, "<b>").replace(/&lt;\/b&gt;/gi, "</b>");
+  s = s.replace(/&lt;strong&gt;/gi, "<strong>").replace(/&lt;\/strong&gt;/gi, "</strong>");
+  s = s.replace(/&lt;i&gt;/gi, "<i>").replace(/&lt;\/i&gt;/gi, "</i>");
+  s = s.replace(/&lt;em&gt;/gi, "<em>").replace(/&lt;\/em&gt;/gi, "</em>");
+  s = s.replace(/&lt;u&gt;/gi, "<u>").replace(/&lt;\/u&gt;/gi, "</u>");
+  return s;
 }
 
 // Iframe height communication

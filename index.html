@@ -88,15 +88,20 @@ body { font-family: Manrope, Arial, sans-serif; color: #272727; background: #f8f
 #modal-links a:hover { text-decoration: underline; }
 #modal-links a::before { content: "\2192"; }
 
+/* Mobile grid (hidden on desktop) */
+.mobile-grid { display: none; }
+
 /* Responsive */
-@media (max-width: 900px) { .roadmap-grid { grid-template-columns: 120px repeat(4, 1fr); } .card-title { font-size: 12px; } }
+@media (max-width: 900px) { .desktop-grid { grid-template-columns: 120px repeat(4, 1fr); } .card-title { font-size: 12px; } }
 @media (max-width: 768px) {
-  .roadmap-grid { grid-template-columns: 1fr; }
-  .corner-cell { display: none; }
-  .col-header { display: none; }
-  .row-header { display: none; }
-  .grid-cell { border-bottom: 2px solid #6366f1; padding-top: 12px; }
-  .grid-cell::before { content: attr(data-category) " \2022  " attr(data-release); font-weight: 700; font-size: 12px; color: #6366f1; margin-bottom: 6px; display: block; }
+  .desktop-grid { display: none; }
+  .mobile-grid { display: block; }
+  .mobile-release-section { margin-bottom: 24px; }
+  .mobile-release-header { background: #6366f1; color: #fff; padding: 12px 16px; font-weight: 700; font-size: 16px; border-radius: 8px 8px 0 0; }
+  .mobile-category-section { background: #fff; border-left: 1px solid #e2e8f0; border-right: 1px solid #e2e8f0; }
+  .mobile-category-section:last-child { border-bottom: 1px solid #e2e8f0; border-radius: 0 0 8px 8px; }
+  .mobile-category-header { background: #131022; color: #fff; padding: 10px 16px; font-weight: 600; font-size: 13px; }
+  .mobile-cards { padding: 8px; display: flex; flex-direction: column; gap: 6px; }
 }
 </style>
 </head>
@@ -109,7 +114,7 @@ body { font-family: Manrope, Arial, sans-serif; color: #272727; background: #f8f
     <h1>Product Roadmap</h1>
   </div>
   <div class="header-right">
-    <span class="last-updated">Updated February 5, 2026</span>
+    <span class="last-updated">Updated February 6, 2026</span>
   </div>
 </header>
 <div class="legend">
@@ -119,7 +124,7 @@ body { font-family: Manrope, Arial, sans-serif; color: #272727; background: #f8f
   <span class="legend-item"><span class="legend-dot in-discovery"></span>In Discovery</span>
   <span class="legend-item"><span class="legend-dot new-idea"></span>New Idea</span>
 </div>
-<div class="roadmap-grid">
+<div class="roadmap-grid desktop-grid">
   <div class="corner-cell"></div>
   <div class="col-header">
     <span class="release-name">Fall</span>
@@ -137,7 +142,7 @@ body { font-family: Manrope, Arial, sans-serif; color: #272727; background: #f8f
     <span class="release-name">Future</span>
   </div>
   <div class="row-header">Blackthorn Events</div>
-  <div class="grid-cell" data-category="Blackthorn Events" data-release="Fall">
+  <div class="grid-cell">
     <div class="card" onclick="openModal('f0')" role="button" tabindex="0" onkeydown="if(event.key==='Enter')openModal('f0')">
       <span class="status-dot released" title="Released"></span>
       <span class="card-title">Easier Reporting for Form Submission Data</span>
@@ -151,7 +156,7 @@ body { font-family: Manrope, Arial, sans-serif; color: #272727; background: #f8f
       <span class="card-title">Forms for Sessions</span>
     </div>
   </div>
-  <div class="grid-cell" data-category="Blackthorn Events" data-release="Winter">
+  <div class="grid-cell">
     <div class="card" onclick="openModal('f3')" role="button" tabindex="0" onkeydown="if(event.key==='Enter')openModal('f3')">
       <span class="status-dot released" title="Released"></span>
       <span class="card-title">🔖 Badge Generation, powered by Nintex (Nov est.)</span>
@@ -169,7 +174,7 @@ body { font-family: Manrope, Arial, sans-serif; color: #272727; background: #f8f
       <span class="card-title">Collapse session description on registration page</span>
     </div>
   </div>
-  <div class="grid-cell" data-category="Blackthorn Events" data-release="Spring">
+  <div class="grid-cell">
     <div class="card" onclick="openModal('f7')" role="button" tabindex="0" onkeydown="if(event.key==='Enter')openModal('f7')">
       <span class="status-dot planned" title="Planned"></span>
       <span class="card-title">Abandoned Cart Tracking</span>
@@ -183,26 +188,26 @@ body { font-family: Manrope, Arial, sans-serif; color: #272727; background: #f8f
       <span class="card-title">Require at least one session selection</span>
     </div>
   </div>
-  <div class="grid-cell" data-category="Blackthorn Events" data-release="Future">
+  <div class="grid-cell">
     <div class="card" onclick="openModal('f10')" role="button" tabindex="0" onkeydown="if(event.key==='Enter')openModal('f10')">
       <span class="status-dot new-idea" title="New Idea"></span>
       <span class="card-title">Table &amp; Block Ticketing</span>
     </div>
   </div>
   <div class="row-header">Blackthorn Mobile Apps</div>
-  <div class="grid-cell" data-category="Blackthorn Mobile Apps" data-release="Fall">
+  <div class="grid-cell">
     <div class="card" onclick="openModal('f11')" role="button" tabindex="0" onkeydown="if(event.key==='Enter')openModal('f11')">
       <span class="status-dot released" title="Released"></span>
       <span class="card-title">Bulk Data Sync (Swift Mode)</span>
     </div>
   </div>
-  <div class="grid-cell" data-category="Blackthorn Mobile Apps" data-release="Winter">
+  <div class="grid-cell">
     <div class="card" onclick="openModal('f12')" role="button" tabindex="0" onkeydown="if(event.key==='Enter')openModal('f12')">
       <span class="status-dot released" title="Released"></span>
       <span class="card-title">Attendee Navigator Custom Content 🎨</span>
     </div>
   </div>
-  <div class="grid-cell" data-category="Blackthorn Mobile Apps" data-release="Spring">
+  <div class="grid-cell">
     <div class="card" onclick="openModal('f13')" role="button" tabindex="0" onkeydown="if(event.key==='Enter')openModal('f13')">
       <span class="status-dot in-development" title="In Development"></span>
       <span class="card-title">Self check-in: Kiosk mode 🖥️</span>
@@ -212,20 +217,142 @@ body { font-family: Manrope, Arial, sans-serif; color: #272727; background: #f8f
       <span class="card-title">Attendee Navigator Notification center 🔔</span>
     </div>
   </div>
-  <div class="grid-cell" data-category="Blackthorn Mobile Apps" data-release="Future">
+  <div class="grid-cell">
+
   </div>
   <div class="row-header">Blackthorn Payments</div>
-  <div class="grid-cell" data-category="Blackthorn Payments" data-release="Fall">
+  <div class="grid-cell">
+
   </div>
-  <div class="grid-cell" data-category="Blackthorn Payments" data-release="Winter">
+  <div class="grid-cell">
+
   </div>
-  <div class="grid-cell" data-category="Blackthorn Payments" data-release="Spring">
+  <div class="grid-cell">
     <div class="card" onclick="openModal('f15')" role="button" tabindex="0" onkeydown="if(event.key==='Enter')openModal('f15')">
       <span class="status-dot in-development" title="In Development"></span>
       <span class="card-title">A &amp; AA Level WCAG Accessibility ♿️</span>
     </div>
   </div>
-  <div class="grid-cell" data-category="Blackthorn Payments" data-release="Future">
+  <div class="grid-cell">
+
+  </div>
+</div>
+<div class="mobile-grid">
+  <div class="mobile-release-section">
+    <div class="mobile-release-header">Fall: September &#39;25 Estimated</div>
+    <div class="mobile-category-section">
+      <div class="mobile-category-header">Blackthorn Events</div>
+      <div class="mobile-cards">
+    <div class="card" onclick="openModal('f16')" role="button" tabindex="0" onkeydown="if(event.key==='Enter')openModal('f16')">
+      <span class="status-dot released" title="Released"></span>
+      <span class="card-title">Easier Reporting for Form Submission Data</span>
+    </div>
+    <div class="card" onclick="openModal('f17')" role="button" tabindex="0" onkeydown="if(event.key==='Enter')openModal('f17')">
+      <span class="status-dot released" title="Released"></span>
+      <span class="card-title">Customize Builder fields 🔧</span>
+    </div>
+    <div class="card" onclick="openModal('f18')" role="button" tabindex="0" onkeydown="if(event.key==='Enter')openModal('f18')">
+      <span class="status-dot released" title="Released"></span>
+      <span class="card-title">Forms for Sessions</span>
+    </div>
+      </div>
+    </div>
+    <div class="mobile-category-section">
+      <div class="mobile-category-header">Blackthorn Mobile Apps</div>
+      <div class="mobile-cards">
+    <div class="card" onclick="openModal('f19')" role="button" tabindex="0" onkeydown="if(event.key==='Enter')openModal('f19')">
+      <span class="status-dot released" title="Released"></span>
+      <span class="card-title">Bulk Data Sync (Swift Mode)</span>
+    </div>
+      </div>
+    </div>
+  </div>
+  <div class="mobile-release-section">
+    <div class="mobile-release-header">Winter: January &#39;26 Estimated</div>
+    <div class="mobile-category-section">
+      <div class="mobile-category-header">Blackthorn Events</div>
+      <div class="mobile-cards">
+    <div class="card" onclick="openModal('f20')" role="button" tabindex="0" onkeydown="if(event.key==='Enter')openModal('f20')">
+      <span class="status-dot released" title="Released"></span>
+      <span class="card-title">🔖 Badge Generation, powered by Nintex (Nov est.)</span>
+    </div>
+    <div class="card" onclick="openModal('f21')" role="button" tabindex="0" onkeydown="if(event.key==='Enter')openModal('f21')">
+      <span class="status-dot in-development" title="In Development"></span>
+      <span class="card-title">Analytics Improvements (UTM, GTM)</span>
+    </div>
+    <div class="card" onclick="openModal('f22')" role="button" tabindex="0" onkeydown="if(event.key==='Enter')openModal('f22')">
+      <span class="status-dot in-development" title="In Development"></span>
+      <span class="card-title">Session Selection Quick Wins</span>
+    </div>
+    <div class="card sub-feature" onclick="openModal('f23')" role="button" tabindex="0" onkeydown="if(event.key==='Enter')openModal('f23')">
+      <span class="status-dot in-development" title="In Development"></span>
+      <span class="card-title">Collapse session description on registration page</span>
+    </div>
+      </div>
+    </div>
+    <div class="mobile-category-section">
+      <div class="mobile-category-header">Blackthorn Mobile Apps</div>
+      <div class="mobile-cards">
+    <div class="card" onclick="openModal('f24')" role="button" tabindex="0" onkeydown="if(event.key==='Enter')openModal('f24')">
+      <span class="status-dot released" title="Released"></span>
+      <span class="card-title">Attendee Navigator Custom Content 🎨</span>
+    </div>
+      </div>
+    </div>
+  </div>
+  <div class="mobile-release-section">
+    <div class="mobile-release-header">Spring: May &#39;26 Estimated</div>
+    <div class="mobile-category-section">
+      <div class="mobile-category-header">Blackthorn Events</div>
+      <div class="mobile-cards">
+    <div class="card" onclick="openModal('f25')" role="button" tabindex="0" onkeydown="if(event.key==='Enter')openModal('f25')">
+      <span class="status-dot planned" title="Planned"></span>
+      <span class="card-title">Abandoned Cart Tracking</span>
+    </div>
+    <div class="card" onclick="openModal('f26')" role="button" tabindex="0" onkeydown="if(event.key==='Enter')openModal('f26')">
+      <span class="status-dot in-development" title="In Development"></span>
+      <span class="card-title">Session Selection Quick Wins</span>
+    </div>
+    <div class="card sub-feature" onclick="openModal('f27')" role="button" tabindex="0" onkeydown="if(event.key==='Enter')openModal('f27')">
+      <span class="status-dot in-development" title="In Development"></span>
+      <span class="card-title">Require at least one session selection</span>
+    </div>
+      </div>
+    </div>
+    <div class="mobile-category-section">
+      <div class="mobile-category-header">Blackthorn Mobile Apps</div>
+      <div class="mobile-cards">
+    <div class="card" onclick="openModal('f28')" role="button" tabindex="0" onkeydown="if(event.key==='Enter')openModal('f28')">
+      <span class="status-dot in-development" title="In Development"></span>
+      <span class="card-title">Self check-in: Kiosk mode 🖥️</span>
+    </div>
+    <div class="card" onclick="openModal('f29')" role="button" tabindex="0" onkeydown="if(event.key==='Enter')openModal('f29')">
+      <span class="status-dot in-development" title="In Development"></span>
+      <span class="card-title">Attendee Navigator Notification center 🔔</span>
+    </div>
+      </div>
+    </div>
+    <div class="mobile-category-section">
+      <div class="mobile-category-header">Blackthorn Payments</div>
+      <div class="mobile-cards">
+    <div class="card" onclick="openModal('f30')" role="button" tabindex="0" onkeydown="if(event.key==='Enter')openModal('f30')">
+      <span class="status-dot in-development" title="In Development"></span>
+      <span class="card-title">A &amp; AA Level WCAG Accessibility ♿️</span>
+    </div>
+      </div>
+    </div>
+  </div>
+  <div class="mobile-release-section">
+    <div class="mobile-release-header">Future</div>
+    <div class="mobile-category-section">
+      <div class="mobile-category-header">Blackthorn Events</div>
+      <div class="mobile-cards">
+    <div class="card" onclick="openModal('f31')" role="button" tabindex="0" onkeydown="if(event.key==='Enter')openModal('f31')">
+      <span class="status-dot new-idea" title="New Idea"></span>
+      <span class="card-title">Table &amp; Block Ticketing</span>
+    </div>
+      </div>
+    </div>
   </div>
 </div>
 <div id="modal-overlay" onclick="closeModal(event)">
@@ -238,7 +365,7 @@ body { font-family: Manrope, Arial, sans-serif; color: #272727; background: #f8f
   </div>
 </div>
 <script>
-var FEATURES = {"f0":{"title":"Easier Reporting for Form Submission Data","description":"No more Excel gymnastics to report on your attendee form submission data! Report on attendee answers with a single row for each attendee. Each column header is a form question.","status":"Released","statusClass":"released","links":[{"label":"View Docs","url":"https://docs.blackthorn.io"}]},"f1":{"title":"Customize Builder fields 🔧","description":"Update different sections with fields that are relevant to your event creation workflow! We are adding additional fields to our fieldsets, and are adding static fields as well so you can remove optional ones.","status":"Released","statusClass":"released","links":[]},"f2":{"title":"Forms for Sessions","description":"Chicken, beef, or vegetarian entrée for your dinner session? Ask your attendees a session-specific question during the session selection step.","status":"Released","statusClass":"released","links":[]},"f3":{"title":"🔖 Badge Generation, powered by Nintex (Nov est.)","description":"Easily generate and print event attendee badges using your existing Blackthorn Events data. This app integrates with Nintex DocGen to streamline badge creation—no configuration expertise required.\n\nRefine the look and feel of your badges with templates. Print them in bulk for a breezy day 1 of your event, or individually as needed.  \n\nNote that this extension is available within Salesforce. The Mobile Check-in app supports standard badge printing, but not this new extension.","status":"Released","statusClass":"released","links":[]},"f4":{"title":"Analytics Improvements (UTM, GTM)","description":"New improvements for UTM parameter tracking and GTM are on the way!\n\nUTM Parameter Persistence in iFrames captures and carries UTM parameters through to the iframed event registration pages.\n\nGoogle Tag Manager Updates:\n\nEvent tracking: You’ll now be able to track these registration-journey events and push them into GTM:\n\n- User views an Event Group\n- User selects an Event\n- User begins the registration form\n- User abandons the form\n- User completes registration and payment \n\nMultiple GTM container IDs: You'll be about to add one or more GTM container IDs directly in the Event Settings record.","status":"In Development","statusClass":"in-development","links":[]},"f5":{"title":"Session Selection Quick Wins","description":"A collection of small but mighty updates that make session registration faster, smoother, and easier—less scrolling, fewer clicks, and a more intuitive experience for both attendees and organizers.","status":"In Development","statusClass":"in-development","links":[]},"f6":{"title":"Collapse session description on registration page","description":"Expand or collapse individual session details on the registration page (Dynamic UI and Tabbed UI), making it easier to browse sessions, reduce scrolling (especially on mobile), and quickly find the ones you want to attend.","status":"In Development","statusClass":"in-development","links":[]},"f7":{"title":"Abandoned Cart Tracking","description":"🛒 Leverage new visibility into your registration funnel. We’ll add step-level tracking across the flow, capturing exact drop-off points with timestamps and identifiers to power targeted marketing and re-engagement.","status":"Planned","statusClass":"planned","links":[]},"f8":{"title":"Session Selection Quick Wins","description":"A collection of small but mighty updates that make session registration faster, smoother, and easier—less scrolling, fewer clicks, and a more intuitive experience for both attendees and organizers.","status":"In Development","statusClass":"in-development","links":[]},"f9":{"title":"Require at least one session selection","description":"You now have the option to require attendees to pick at least one session when registering, saving you the hassle of chasing down incomplete registrations.","status":"In Development","statusClass":"in-development","links":[]},"f10":{"title":"Table & Block Ticketing","description":"Purchase a full table or block of tickets in one step, then distribute them later — ideal for sponsors, companies, or group hosts.","status":"New Idea","statusClass":"new-idea","links":[]},"f11":{"title":"Bulk Data Sync (Swift Mode)","description":"Swift Mode is a new offline check-in capability designed for high-volume events or unreliable internet connections. It securely stores attendee data on the device using persistent storage and syncs with Salesforce in efficient batches. This results in faster performance, improved reliability, and a smoother experience for staff and attendees during check-in. It also drastically lowers the number of Salesforce API calls used by the app.","status":"Released","statusClass":"released","links":[]},"f12":{"title":"Attendee Navigator Custom Content 🎨","description":"Customize your attendee app with the content that matters most\nAdd a rich text section to your Navigator mobile app, giving you a flexible space to share the content that matters most to your attendees.\nUse it for things like parking details, welcome notes, upcoming event promotions, donation links—or anything else you want to highlight.  \n\nEmbedded directly in the app experience\n\nConfigurable to match your event goals\n\nBuilt for flexibility—add the content that makes sense for your attendees","status":"Released","statusClass":"released","links":[]},"f13":{"title":"Self check-in: Kiosk mode 🖥️","description":"💥 Eliminate bottlenecks at check-in! \nWith your check-in app in kiosk mode, attendees can scan their own barcode without the assistance of event staff.","status":"In Development","statusClass":"in-development","links":[]},"f14":{"title":"Attendee Navigator Notification center 🔔","description":"Ensure attendees never miss a critical update.","status":"In Development","statusClass":"in-development","links":[]},"f15":{"title":"A & AA Level WCAG Accessibility ♿️","description":"We're enhancing accessibility across our platform to meet WCAG 2.1 A and AA standards. This ensures a more inclusive experience for users with disabilities, improving navigation, readability, and usability for everyone.","status":"In Development","statusClass":"in-development","links":[]}};
+var FEATURES = {"f0":{"title":"Easier Reporting for Form Submission Data","description":"No more Excel gymnastics to report on your attendee form submission data! Report on attendee answers with a single row for each attendee. Each column header is a form question.","status":"Released","statusClass":"released","links":[{"label":"View Docs","url":"https://docs.blackthorn.io"}]},"f1":{"title":"Customize Builder fields 🔧","description":"Update different sections with fields that are relevant to your event creation workflow! We are adding additional fields to our fieldsets, and are adding static fields as well so you can remove optional ones.","status":"Released","statusClass":"released","links":[]},"f2":{"title":"Forms for Sessions","description":"Chicken, beef, or vegetarian entrée for your dinner session? Ask your attendees a session-specific question during the session selection step.","status":"Released","statusClass":"released","links":[]},"f3":{"title":"🔖 Badge Generation, powered by Nintex (Nov est.)","description":"Easily generate and print event attendee badges using your existing Blackthorn Events data. This app integrates with Nintex DocGen to streamline badge creation—no configuration expertise required.\n\nRefine the look and feel of your badges with templates. Print them in bulk for a breezy day 1 of your event, or individually as needed.  \n\nNote that this extension is available within Salesforce. The Mobile Check-in app supports standard badge printing, but not this new extension.","status":"Released","statusClass":"released","links":[]},"f4":{"title":"Analytics Improvements (UTM, GTM)","description":"New improvements for UTM parameter tracking and GTM are on the way!\n\nUTM Parameter Persistence in iFrames captures and carries UTM parameters through to the iframed event registration pages.\n\nGoogle Tag Manager Updates:\n\nEvent tracking: You’ll now be able to track these registration-journey events and push them into GTM:\n\n- User views an Event Group\n- User selects an Event\n- User begins the registration form\n- User abandons the form\n- User completes registration and payment \n\nMultiple GTM container IDs: You'll be about to add one or more GTM container IDs directly in the Event Settings record.","status":"In Development","statusClass":"in-development","links":[]},"f5":{"title":"Session Selection Quick Wins","description":"A collection of small but mighty updates that make session registration faster, smoother, and easier—less scrolling, fewer clicks, and a more intuitive experience for both attendees and organizers.","status":"In Development","statusClass":"in-development","links":[]},"f6":{"title":"Collapse session description on registration page","description":"Expand or collapse individual session details on the registration page (Dynamic UI and Tabbed UI), making it easier to browse sessions, reduce scrolling (especially on mobile), and quickly find the ones you want to attend.","status":"In Development","statusClass":"in-development","links":[]},"f7":{"title":"Abandoned Cart Tracking","description":"🛒 Leverage new visibility into your registration funnel. We’ll add step-level tracking across the flow, capturing exact drop-off points with timestamps and identifiers to power targeted marketing and re-engagement.","status":"Planned","statusClass":"planned","links":[]},"f8":{"title":"Session Selection Quick Wins","description":"A collection of small but mighty updates that make session registration faster, smoother, and easier—less scrolling, fewer clicks, and a more intuitive experience for both attendees and organizers.","status":"In Development","statusClass":"in-development","links":[]},"f9":{"title":"Require at least one session selection","description":"You now have the option to require attendees to pick at least one session when registering, saving you the hassle of chasing down incomplete registrations.","status":"In Development","statusClass":"in-development","links":[]},"f10":{"title":"Table & Block Ticketing","description":"Purchase a full table or block of tickets in one step, then distribute them later — ideal for sponsors, companies, or group hosts.","status":"New Idea","statusClass":"new-idea","links":[]},"f11":{"title":"Bulk Data Sync (Swift Mode)","description":"Swift Mode is a new offline check-in capability designed for high-volume events or unreliable internet connections. It securely stores attendee data on the device using persistent storage and syncs with Salesforce in efficient batches. This results in faster performance, improved reliability, and a smoother experience for staff and attendees during check-in. It also drastically lowers the number of Salesforce API calls used by the app.","status":"Released","statusClass":"released","links":[]},"f12":{"title":"Attendee Navigator Custom Content 🎨","description":"Customize your attendee app with the content that matters most\nAdd a rich text section to your Navigator mobile app, giving you a flexible space to share the content that matters most to your attendees.\nUse it for things like parking details, welcome notes, upcoming event promotions, donation links—or anything else you want to highlight.  \n\nEmbedded directly in the app experience\n\nConfigurable to match your event goals\n\nBuilt for flexibility—add the content that makes sense for your attendees","status":"Released","statusClass":"released","links":[]},"f13":{"title":"Self check-in: Kiosk mode 🖥️","description":"💥 Eliminate bottlenecks at check-in! \nWith your check-in app in kiosk mode, attendees can scan their own barcode without the assistance of event staff.","status":"In Development","statusClass":"in-development","links":[]},"f14":{"title":"Attendee Navigator Notification center 🔔","description":"Ensure attendees never miss a critical update.","status":"In Development","statusClass":"in-development","links":[]},"f15":{"title":"A & AA Level WCAG Accessibility ♿️","description":"We're enhancing accessibility across our platform to meet WCAG 2.1 A and AA standards. This ensures a more inclusive experience for users with disabilities, improving navigation, readability, and usability for everyone.","status":"In Development","statusClass":"in-development","links":[]},"f16":{"title":"Easier Reporting for Form Submission Data","description":"No more Excel gymnastics to report on your attendee form submission data! Report on attendee answers with a single row for each attendee. Each column header is a form question.","status":"Released","statusClass":"released","links":[{"label":"View Docs","url":"https://docs.blackthorn.io"}]},"f17":{"title":"Customize Builder fields 🔧","description":"Update different sections with fields that are relevant to your event creation workflow! We are adding additional fields to our fieldsets, and are adding static fields as well so you can remove optional ones.","status":"Released","statusClass":"released","links":[]},"f18":{"title":"Forms for Sessions","description":"Chicken, beef, or vegetarian entrée for your dinner session? Ask your attendees a session-specific question during the session selection step.","status":"Released","statusClass":"released","links":[]},"f19":{"title":"Bulk Data Sync (Swift Mode)","description":"Swift Mode is a new offline check-in capability designed for high-volume events or unreliable internet connections. It securely stores attendee data on the device using persistent storage and syncs with Salesforce in efficient batches. This results in faster performance, improved reliability, and a smoother experience for staff and attendees during check-in. It also drastically lowers the number of Salesforce API calls used by the app.","status":"Released","statusClass":"released","links":[]},"f20":{"title":"🔖 Badge Generation, powered by Nintex (Nov est.)","description":"Easily generate and print event attendee badges using your existing Blackthorn Events data. This app integrates with Nintex DocGen to streamline badge creation—no configuration expertise required.\n\nRefine the look and feel of your badges with templates. Print them in bulk for a breezy day 1 of your event, or individually as needed.  \n\nNote that this extension is available within Salesforce. The Mobile Check-in app supports standard badge printing, but not this new extension.","status":"Released","statusClass":"released","links":[]},"f21":{"title":"Analytics Improvements (UTM, GTM)","description":"New improvements for UTM parameter tracking and GTM are on the way!\n\nUTM Parameter Persistence in iFrames captures and carries UTM parameters through to the iframed event registration pages.\n\nGoogle Tag Manager Updates:\n\nEvent tracking: You’ll now be able to track these registration-journey events and push them into GTM:\n\n- User views an Event Group\n- User selects an Event\n- User begins the registration form\n- User abandons the form\n- User completes registration and payment \n\nMultiple GTM container IDs: You'll be about to add one or more GTM container IDs directly in the Event Settings record.","status":"In Development","statusClass":"in-development","links":[]},"f22":{"title":"Session Selection Quick Wins","description":"A collection of small but mighty updates that make session registration faster, smoother, and easier—less scrolling, fewer clicks, and a more intuitive experience for both attendees and organizers.","status":"In Development","statusClass":"in-development","links":[]},"f23":{"title":"Collapse session description on registration page","description":"Expand or collapse individual session details on the registration page (Dynamic UI and Tabbed UI), making it easier to browse sessions, reduce scrolling (especially on mobile), and quickly find the ones you want to attend.","status":"In Development","statusClass":"in-development","links":[]},"f24":{"title":"Attendee Navigator Custom Content 🎨","description":"Customize your attendee app with the content that matters most\nAdd a rich text section to your Navigator mobile app, giving you a flexible space to share the content that matters most to your attendees.\nUse it for things like parking details, welcome notes, upcoming event promotions, donation links—or anything else you want to highlight.  \n\nEmbedded directly in the app experience\n\nConfigurable to match your event goals\n\nBuilt for flexibility—add the content that makes sense for your attendees","status":"Released","statusClass":"released","links":[]},"f25":{"title":"Abandoned Cart Tracking","description":"🛒 Leverage new visibility into your registration funnel. We’ll add step-level tracking across the flow, capturing exact drop-off points with timestamps and identifiers to power targeted marketing and re-engagement.","status":"Planned","statusClass":"planned","links":[]},"f26":{"title":"Session Selection Quick Wins","description":"A collection of small but mighty updates that make session registration faster, smoother, and easier—less scrolling, fewer clicks, and a more intuitive experience for both attendees and organizers.","status":"In Development","statusClass":"in-development","links":[]},"f27":{"title":"Require at least one session selection","description":"You now have the option to require attendees to pick at least one session when registering, saving you the hassle of chasing down incomplete registrations.","status":"In Development","statusClass":"in-development","links":[]},"f28":{"title":"Self check-in: Kiosk mode 🖥️","description":"💥 Eliminate bottlenecks at check-in! \nWith your check-in app in kiosk mode, attendees can scan their own barcode without the assistance of event staff.","status":"In Development","statusClass":"in-development","links":[]},"f29":{"title":"Attendee Navigator Notification center 🔔","description":"Ensure attendees never miss a critical update.","status":"In Development","statusClass":"in-development","links":[]},"f30":{"title":"A & AA Level WCAG Accessibility ♿️","description":"We're enhancing accessibility across our platform to meet WCAG 2.1 A and AA standards. This ensures a more inclusive experience for users with disabilities, improving navigation, readability, and usability for everyone.","status":"In Development","statusClass":"in-development","links":[]},"f31":{"title":"Table & Block Ticketing","description":"Purchase a full table or block of tickets in one step, then distribute them later — ideal for sponsors, companies, or group hosts.","status":"New Idea","statusClass":"new-idea","links":[]}};
 
 function openModal(id) {
   var f = FEATURES[id];

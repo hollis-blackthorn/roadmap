@@ -372,7 +372,7 @@ function openModal(id) {
   if (!f) return;
   document.getElementById("modal-status").innerHTML = '<span class="status-badge ' + f.statusClass + '">' + f.status + '</span>';
   document.getElementById("modal-title").textContent = f.title;
-  var desc = f.description.split(/\n\n+/).map(function(p) { return "<p>" + escapeForHtml(p.replace(/\n/g, "<br>")) + "</p>"; }).join("");
+  var desc = f.description.split(/\n\n+/).map(function(p) { return "<p>" + escapeForHtml(p).replace(/\n/g, "<br>").replace(/&lt;br&gt;/gi, "<br>") + "</p>"; }).join("");
   document.getElementById("modal-description").innerHTML = desc;
   var linksHtml = "";
   if (f.links && f.links.length > 0) {
